@@ -1,17 +1,25 @@
 '''
-  I am just practicing more and more questions but putting uyp the codes which are really of that important
+Question can be found here :
+https://practice.geeksforgeeks.org/problems/longest-common-substring/0
+changes to better understand for future use
+Longest common substring is solved below by top bottom approach
 '''
-
-def LCSubStr(X, Y, m, n):  
-    LCSuff = [[0 for k in range(n+1)] for l in range(m+1)]        
-    result = 0 
-    for i in range(m + 1): 
-        for j in range(n + 1): 
-            if (i == 0 or j == 0): 
-                LCSuff[i][j] = 0
-            elif (X[i-1] == Y[j-1]): 
-                LCSuff[i][j] = LCSuff[i-1][j-1] + 1
-                result = max(result, LCSuff[i][j]) 
-            else: 
-                LCSuff[i][j] = 0
-    return result 
+class Solution:
+    def longestCommonSubstring(self, x: str, y: str) -> int:
+        m=len(x)
+        n=len(y)
+        t=[[0 for i in range(n+1)]for j in range(m+1)]
+        print(t)
+        for i in range(1,m+1):
+            for j in range(1,n+1):
+                if (x[i-1]==y[j-1]):
+                    t[i][j]=1+t[i-1][j-1]
+                else:
+                    t[i][j]=0 #change no 1 we will reset the longest to zero
+        maxi=0
+        for i in range(m+1):
+            for j in range(n+1):
+                if t[i][j]>maxi:
+                    maxi=t[i][j]
+        return maxi
+            

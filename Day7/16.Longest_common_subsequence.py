@@ -2,7 +2,7 @@
 Question can be found here :
 https://leetcode.com/problems/longest-common-subsequence/
 changes to better understand for future use
-LCA is solved below by top bottom approach
+LCS is solved below by top bottom approach
 '''
 class Solution:
     def longestCommonSubsequence(self, x: str, y: str) -> int:
