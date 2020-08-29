@@ -1,18 +1,21 @@
-def superSeq(X, Y, m, n): 
-    dp = [[0] * (n + 2) for i in range(m + 2)] 
-  
-    # Fill table in bottom up manner 
-    for i in range(m + 1): 
-        for j in range(n + 1): 
-             
-            #Below steps follow above recurrence 
-            if (not i): dp[i][j] = j 
-            elif (not j): dp[i][j] = i 
-              
-            elif (X[i - 1] == Y[j - 1]):  
-                 dp[i][j] = 1 + dp[i - 1][j - 1] 
-                   
-            else: dp[i][j] = 1 + min(dp[i - 1][j],  
-                                     dp[i][j - 1]) 
-             
-    return dp[m][n] 
+'''
+Shortest Common Supersequence solved using LCS
+changes to better understand for future use
+LCS is solved below by top bottom approach
+'''
+class Solution:
+    def longestCommonSubsequence(self, x: str, y: str) -> int:
+        m=len(x)
+        n=len(y)
+        t=[[0 for i in range(n+1)]for j in range(m+1)]
+        print(t)
+        for i in range(1,m+1):
+            for j in range(1,n+1):
+                if (x[i-1]==y[j-1]):
+                    t[i][j]=1+t[i-1][j-1]
+                else:
+                    t[i][j]=max(t[i-1][j],t[i][j-1])
+        return t[m][n]
+    x="testing"
+    y="stingray"
+    print(len(x)+len(y)-longestCommonSubsequence(x,y))
