@@ -37,7 +37,6 @@ class Solution:
         n+1
         '''
         for i in range(1,n+1):
-            print(i,j)
             for j in range(1,w+1):
                 if nums[i-1]<=j:
                     t[i][j]=(t[i-1][j-nums[i-1]]) or (t[i-1][j]) #to take th evalue or not
