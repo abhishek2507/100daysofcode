@@ -1,6 +1,8 @@
 '''
 Extension of longest palindromic subsequence problem
 Very easy just return len(string)-longestpalnidromicSubsequence
+https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/
+Similar problem Catch is if we can make deletion we can even add elements to make a palindrome
 '''
 
 class Solution:
